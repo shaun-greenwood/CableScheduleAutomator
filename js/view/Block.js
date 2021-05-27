@@ -1,13 +1,17 @@
 class Block{
 
-  _width = 100;
-  _height = 100;
-  _originX;
-  _originY;
-  _fillColour;
-  _strokeColour;
-
-  constructor(width, height){
+  constructor(originX, originY, width, height){
+    
+    if(originX === undefined){
+      this._originX = windowWidth/2;
+    } else {
+      this._originX = originX;
+    }
+    if(originY === undefined){
+      this._originY = windowHeight/2;
+    } else {
+      this._originY = originY;
+    }
     if(width === undefined){
       this._width = 100;
     } else {
@@ -18,8 +22,9 @@ class Block{
     } else {
       this._height = height;
     }
-    this._originX = windowWidth/2;
-    this._originY = windowHeight/2
+  };
+
+  show(){
     noFill();
     stroke('black');
     rectMode(CENTER);
